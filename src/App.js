@@ -1,6 +1,8 @@
 import './App.css';
 import React from 'react';
-import  SecondLecture  from './components/second/SecondLecture'
+import SecondLecture from './components/second/SecondLecture'
+import Button from './components/third/Button';
+import FetchData from './components/third/FetchData';
 const list = [
   {
     title: 'React',
@@ -34,6 +36,9 @@ function App() {
       </div>
     }
     )}
+    <Button onClick={() => { console.log( "I am clicked from chile" ); }} className="red" text="Hit me" />
+    <Button onClick={() => { console.log( "I am clicked from child blue" ); }} className="blue" text="Hit me blue" />
+    <FetchData />
     {/* <div>hello man </div>
     <div className="App">
       <header className="App-header">
@@ -54,6 +59,6 @@ function App() {
      
     </div> */}
   </React.Fragment>
-  }
+}
 
 export default App;
