@@ -1,6 +1,9 @@
 import './App.css';
-import React from 'react';
-import  SecondLecture  from './components/second/SecondLecture'
+import React, { useState } from 'react';
+import SecondLecture from './components/second/SecondLecture'
+import Button from './components/third/Button';
+import FetchData from './components/third/FetchData';
+import Counter from './components/FourthLecture-LifeCycleMethods/Counter';
 const list = [
   {
     title: 'React',
@@ -19,10 +22,21 @@ const list = [
     objectID: 1,
   },
 ];
+
 function App() {
+  const [mount, setMount] = useState( true )
+  const [checkingProp, setCheckingProp] = useState( 2 )
 
   return <React.Fragment>
-    <SecondLecture />
+    <button onClick={() => {
+      setMount( false )
+    }}>UnMount</button>
+    <button onClick={() => {
+      setMount( true )
+    }}>Mount</button>
+
+    {mount ? <Counter checkingProp={checkingProp} /> : null}
+    {/* <SecondLecture />
     {list.map( item => {
       return <div key={item.objectID}>
         <span>
@@ -34,6 +48,9 @@ function App() {
       </div>
     }
     )}
+    <Button onClick={() => { console.log( "I am clicked from chile" ); }} className="red" text="Hit me" />
+    <Button onClick={() => { console.log( "I am clicked from child blue" ); }} className="blue" text="Hit me blue" />
+    <FetchData /> */}
     {/* <div>hello man </div>
     <div className="App">
       <header className="App-header">
@@ -54,6 +71,6 @@ function App() {
      
     </div> */}
   </React.Fragment>
-  }
+}
 
 export default App;
